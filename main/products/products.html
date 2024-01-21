@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../products/mainn.css">
+    <title>Home</title>
+</head>
+<style>
+       body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('./img/login-image.webp');
+            background-size: cover;
+        }
+        #contactContainer {
+        max-width: 600px;
+        margin: 50px auto;
+        background-color: rgb(95, 95, 165);
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #feedbackForm {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #feedbackForm label {
+        color: #fff;
+        margin-bottom: 10px;
+    }
+
+    #feedbackForm textarea {
+        resize: none;
+        height: 100px;
+        margin-bottom: 10px;
+    }
+
+    #feedbackForm input[type="submit"] {
+        background-color: #3498db;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    #feedbackForm input[type="submit"]:hover {
+        background-color: #2980b9;
+    }
+
+    #feedbackList {
+        margin-top: 20px;
+        color: #fff;
+    }
+</style>
+<body class = "main-page">
+    
+    <!-- Navbar -->
+    <nav class="navbar">
+        <img src="../products/img/box.png" alt="Logo">
+        <ul>
+            <li><a href="/G88_AMIT/project%201/main/main.html#home" id="Home">Home</a></li>
+            <li><a href="#product" id="productsLink">Products</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact" id="contactLink">Contact Us</a></li>
+            <li><a href="#" id="loginBtn">Login</a></li>
+            <li><a href="#" id="signupBtn">Register</a></li>
+            <li><a href="#profile">Profile</a></li>
+        </ul>
+    </nav>   
+    
+    
+    <div id="contactContainer">
+        <h2>Contact Us:</h2>
+        
+        <form id="feedbackForm">
+            <label for="feedback">Your Feedback:</label>
+            <textarea id="feedback" name="feedback" rows="4" cols="50"></textarea>
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+       
+        <div id="feedbackList"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Your Company. All rights reserved.</p>
+    </footer>
+
+
+<script src="../products/product.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const scrollToTopButton = document.getElementById('scrollToTopButton');
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 100) {
+                scrollToTopButton.style.display = 'block';
+            } else {
+                scrollToTopButton.style.display = 'none';
+            }
+        });
+        scrollToTopButton.addEventListener('click', function () {
+            scrollToTop();
+        });
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    });
+
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const feedbackForm = document.getElementById('feedbackForm');
+        const feedbackList = document.getElementById('feedbackList');
+
+        feedbackForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Get the user's feedback from the form
+            const userFeedback = document.getElementById('feedback').value;
+
+            // Check if the feedback is not empty
+            if (userFeedback.trim() !== '') {
+                // Create a new feedback item
+                const feedbackItem = document.createElement('div');
+                feedbackItem.classList.add('feedback-item');
+                feedbackItem.textContent = userFeedback;
+
+                // Append the feedback item to the feedback list
+                feedbackList.appendChild(feedbackItem);
+
+                // Clear the feedback form
+                feedbackForm.reset();
+            }
+        });
+    });
+</script>
+
+    
+</body>
+</html>

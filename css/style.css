@@ -1,0 +1,112 @@
+/* style.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('../img/login-image.webp'); /* Replace with your image file */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+form {
+    max-width: 500px;
+    width: 100%;
+    padding: 20px;
+    background-color: navy; /* Updated background color */
+    border: 1px solid #001f3f; /* Darker border color */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #ffffff; /* Text color */
+}
+
+.form-outline {
+    position: relative;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #17202a; /* Darker border color */
+    border-radius: 5px;
+    background-color: #001f3f; /* Darker background color */
+    color: #ffffff; /* Text color */
+}
+
+.form-label {
+    position: absolute;
+    top: -10px; /* Adjusted position to exceed the form size */
+    left: 5px;
+    padding: 15px; /* Adjusted padding for larger label */
+    font-size: 18px; /* Adjusted font size for larger label */
+    color: #7f8c8d; /* Lighter label color */
+    background-color: #001f3f; /* Darker background color */
+    z-index: 1;
+    transition: 0.3s;
+}
+
+.form-control:focus + .form-label,
+.form-control:not(:placeholder-shown) + .form-label {
+    top: -25px; /* Adjusted position when focused or not empty */
+    left: 5px;
+    background-color: #001f3f; /* Darker background color */
+    padding: 3px;
+    font-size: 12px;
+    color: #ffffff;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-check-input {
+    margin-right: 5px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-link {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.btn-link:hover {
+    text-decoration: underline;
+}
+
+.btn-floating {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    color: #ffffff;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.btn-floating:hover {
+    background-color: #0056b3;
+}
+
+.btn-floating i {
+    font-size: 18px;
+}

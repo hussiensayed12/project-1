@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/mainn.css">
+    <title>Home</title>
+</head>
+<style>
+       body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('./products/img/login-image.webp');
+            background-size: cover;
+        }
+
+        .main-page {
+            
+        }
+
+        .navbar {
+           
+        }
+
+
+        #welcomeQuote {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        #welcomeQuote h1 {
+            font-size: 2.5em;
+            color: #333;
+        }
+
+        #welcomeQuote h3 {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Button styles */
+        #welcomeButton {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #welcomeButton:hover {
+            background-color: #2980b9;
+        }
+
+        #scrollToTopButton {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: navy;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 5px;
+        display: block;
+    }
+
+    #scrollToTopButton:hover {
+        background-color: #001f3f;
+    }
+</style>
+<body class = "main-page">
+    
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <img src="..///img/box.png" alt="Logo">
+        <ul>
+            <li><a href="/G88_AMIT/project%201/main/main.html#home" id="Home">Home</a></li>
+            <li><a href="#product" id="productsLink">Products</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact" id="contactLink">Contact Us</a></li>
+            <li><a href="#" id="loginBtn">Login</a></li>
+            <li><a href="#" id="signupBtn">Register</a></li>
+            <li><a href="#profile">Profile</a></li>
+        </ul>
+    </nav>
+    <div id="welcomeQuote">
+        <h1>Welcome to Yonyo</h1>
+        <h3>Elevate Your Lifestyle with Premium Products</h3>
+        <button id="welcomeButton">Explore Now</button>
+    </div>
+    
+
+    <footer>
+        <p>&copy; 2023 Your Company. All rights reserved.</p>
+        <button id="scrollToTopButton">Scroll to Top</button>
+    </footer>
+    <div id="productContainer"></div>
+    <div id="singleProductContainer"></div>
+
+<script src="main.js"></script>
+<script>
+    
+    document.addEventListener('DOMContentLoaded', function () {
+        const scrollToTopButton = document.getElementById('scrollToTopButton');
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 100) {
+                scrollToTopButton.style.display = 'block';
+            } else {
+                scrollToTopButton.style.display = 'none';
+            }
+        });
+        scrollToTopButton.addEventListener('click', function () {
+            scrollToTop();
+        });
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const navbar = document.getElementById('navbar');
+        const welcomeQuote = document.getElementById('welcomeQuote');
+        const welcomeButton = document.getElementById('welcomeButton');
+        const scrollToTopButton = document.getElementById('scrollToTopButton');
+
+        window.addEventListener('scroll', function () {
+            // Navbar Design changes on scroll
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-scroll');
+            } else {
+                navbar.classList.remove('navbar-scroll');
+            }
+
+            if (window.scrollY > 50) {
+                welcomeQuote.style.display = 'none';
+                welcomeButton.style.display = 'none';
+            } else {
+                welcomeQuote.style.display = 'block';
+                welcomeButton.style.display = 'block';
+            }
+        });
+        scrollToTopButton.addEventListener('click', function () {
+            scrollToTop();
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    });
+</script>
+    
+</body>
+</html>

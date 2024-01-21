@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../products/mainn.css">
+</head>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url('../products/img/login-image.webp');
+        background-size: cover;
+    }
+
+    .navbar {
+        /* Your existing navbar styles */
+    }
+
+    #productContainer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around; /* Adjust as needed */
+        align-items: flex-start; /* Adjust as needed */
+        padding: 20px; /* Add padding as needed */
+    }
+
+    .product-item {
+        /* Your existing product item styles */
+        width: 300px;
+        margin: 20px;
+        background-color: rgb(95, 95, 165);
+        border: 1px solid #ddd;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .product-item:hover {
+        transform: scale(1.05);
+    }
+
+    .product-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .product-details {
+        padding: 15px;
+    }
+
+    .product-title {
+        font-size: 12px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .product-description {
+        font-size: 14px;
+        color: #000000;
+    }
+
+    #scrollToTopButton {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: navy;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 5px;
+        display: block;
+    }
+
+    #scrollToTopButton:hover {
+        background-color: #001f3f;
+    }
+</style>
+<body>
+    <nav class="navbar">
+        <img src="../products/img/box.png" alt="Logo">
+        <ul>
+            <li><a href="#home" id="Home">Home</a></li>
+            <li><a href="#product" id="productsLink">Products</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact" id="contactLink">Contact Us</a></li>
+            <li><a href="#" id="loginBtn">Login</a></li>
+            <li><a href="#" id="signupBtn">Register</a></li>
+            <li><a href="#profile">Profile</a></li>
+        </ul>
+    </nav>
+
+    <footer>
+        <p>&copy; 2023 Your Company. All rights reserved.</p>
+        <button id="scrollToTopButton">Scroll to Top</button>
+    </footer>
+
+    <div id="productContainer"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            fetchAndDisplayProducts();
+
+            function fetchAndDisplayProducts() {
+                fetch('https://fakestoreapi.com/products')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! Status: ${response.status}`);
+                        }
+                        return response.json();
+                    })
+                    .then(products => {
+                        console.log('All Products:', products);
+                        displayProducts(products);
+                    })
+                    .catch(error => console.error('Error fetching products:', error));
+            }
+
+            function displayProducts(products) {
+                const productContainer = document.getElementById('productContainer');
+                productContainer.innerHTML = '';
+
+                products.forEach(product => {
+                    const productItem = document.createElement('div');
+                    productItem.classList.add('product-item');
+                    productItem.dataset.productId = product.id;
+                    productItem.innerHTML = `
+                        <img src="${product.image}" alt="${product.title}" class="product-image">
+                        <div class="product-details">
+                            <h3 class="product-title">${product.title}</h3>
+                            <p class="product-description">${product.description}</p>
+                        </div>`;
+
+                    productContainer.appendChild(productItem);
+                });
+            }
+        });
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+        const scrollToTopButton = document.getElementById('scrollToTopButton');
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 100) {
+                scrollToTopButton.style.display = 'block';
+            } else {
+                scrollToTopButton.style.display = 'none';
+            }
+        });
+        scrollToTopButton.addEventListener('click', function () {
+            scrollToTop();
+        });
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    });
+    </script>
+    <script src="../main.js"></script>
+</body>
+</html>

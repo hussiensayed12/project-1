@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/signup.css">
+    <title>Signup Form</title>
+</head>
+<body>
+    <form id="signupForm">
+        <!-- Name input -->
+        <div class="form-outline mb-4">
+            <input type="text" id="fullName" class="form-control" />
+            <label class="form-label" for="fullName">Full Name</label>
+        </div>
+      
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+            <input type="email" id="email" class="form-control" />
+            <label class="form-label" for="email">Email address</label>
+        </div>
+      
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+            <input type="password" id="password" class="form-control" />
+            <label class="form-label" for="password">Password</label>
+        </div>
+      
+        <!-- Confirm Password input -->
+        <div class="form-outline mb-4">
+            <input type="password" id="confirmPassword" class="form-control" />
+            <label class="form-label" for="confirmPassword">Confirm Password</label>
+        </div>
+      
+        <!-- Submit button -->
+        <button type="button" class="btn btn-primary btn-block mb-4" onclick="registerUser()">Sign up</button>
+      
+        <!-- Login link -->
+        <div class="text-center">
+            <p>Already a member? <a href="#!" id="loginLink">Login</a></p>
+        </div>
+    </form>
+    <script src="signup.js"></script>
+</body>
+</html>
